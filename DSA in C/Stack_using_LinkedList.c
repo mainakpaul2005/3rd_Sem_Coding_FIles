@@ -8,7 +8,6 @@ struct Node {
 
 void push(struct Node** top, int value); 
 int pop(struct Node** top);
-int peek(struct Node** top);
 void display(struct Node* top);
 
 int main() 
@@ -76,15 +75,6 @@ int pop(struct Node** top)
     int value = temp->data;
     *top = (*top)->next;
     free(temp);
-    return value;
-}
-
-int peek(struct Node** top) 
-{
-    if (*top == NULL)
-        return -1;
-    struct Node* temp = *top;
-    int value = temp->data;
     return value;
 }
 

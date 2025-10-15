@@ -16,11 +16,12 @@ int main()
     struct Node* rear = NULL;
     int choice = 0, value;
     
+    printf("Queue Using Linked-List: \n");
+    printf("------------------------\n");
+    
     while (choice != 4) 
     {
-    	printf("Queue Using Linked-List: \n");
-    	printf("------------------------");
-        printf("\n1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\nEnter choice: ");
+        printf("1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\nEnter choice: ");
         scanf("%d", &choice);
         if (choice == 1) 
         {
