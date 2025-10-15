@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void merge(int arr[], int left, int mid, int right) {
+void merge(int arr[], int left, int mid, int right) 
+{
     int i, j, k;
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -44,8 +45,10 @@ void merge(int arr[], int left, int mid, int right) {
     free(R);
 }
 
-void mergeSort(int arr[], int left, int right) {
-    if (left < right) {
+void mergeSort(int arr[], int left, int right) 
+{
+    if (left < right) 
+    {
         int mid = left + (right - left) / 2;
 
         mergeSort(arr, left, mid);
@@ -55,20 +58,23 @@ void mergeSort(int arr[], int left, int right) {
     }
 }
 
-void printArray(int arr[], int size) {
+void printArray(int arr[], int size) 
+{
     for (int i = 0; i < size; i++)
         printf("%d ", arr[i]);
     printf("\n");
 }
 
-int main() {
+int main() 
+{
     int size;
     int* arr = (int*)malloc(7 * sizeof(int));
     printf("Enter the size of array: ");
     scanf("%d", &size);
 
     printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) 
+    {
         scanf("%d", &arr[i]);
     }
 

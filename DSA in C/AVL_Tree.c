@@ -10,19 +10,22 @@ struct Node {
     int height;
 };
 
-int height(struct Node *N) {
+int height(struct Node *N) 
+{
     if (N == NULL)
         return 0;
     return N->height;
 }
 
 
-int max(int a, int b) {
+int max(int a, int b) 
+{
     return (a > b) ? a : b;
 }
 
 
-struct Node* newNode(int key) {
+struct Node* newNode(int key) 
+{
     struct Node* node = (struct Node*) malloc(sizeof(struct Node));
     node->key = key;
     node->left = NULL;
@@ -32,7 +35,8 @@ struct Node* newNode(int key) {
 }
 
 
-struct Node *rightRotate(struct Node *y) {
+struct Node *rightRotate(struct Node *y) 
+{
     struct Node *x = y->left;
     struct Node *T2 = x->right;
 
@@ -45,7 +49,8 @@ struct Node *rightRotate(struct Node *y) {
     return x;
 }
 
-struct Node *leftRotate(struct Node *x) {
+struct Node *leftRotate(struct Node *x) 
+{
     struct Node *y = x->right;
     struct Node *T2 = y->left;
 
@@ -59,14 +64,16 @@ struct Node *leftRotate(struct Node *x) {
     return y;
 }
 
-int getBalance(struct Node *N) {
+int getBalance(struct Node *N) 
+{
     if (N == NULL)
         return 0;
     return height(N->left) - height(N->right);
 }
 
 
-struct Node* insert(struct Node* node, int key) {
+struct Node* insert(struct Node* node, int key) 
+{
 
     if (node == NULL)
         return(newNode(key));
@@ -102,7 +109,8 @@ struct Node* insert(struct Node* node, int key) {
 }
 
 
-void preOrder(struct Node *root) {
+void preOrder(struct Node *root) 
+{
     if(root != NULL) {
         printf("%d ", root->key);
         preOrder(root->left);
@@ -110,7 +118,8 @@ void preOrder(struct Node *root) {
     }
 }
 
-int main() {
+int main() 
+{
     struct Node *root = NULL;
 
     int n,ch;
