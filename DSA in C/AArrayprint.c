@@ -5,8 +5,7 @@ int main(){
 	int* arr;
 	int size,i;
 	printf("Enter the no of numbers : ");
-	scanf("%d",&size);
-	arr = (int*) malloc(size * sizeof(int));
+	scanf("%d",&size); arr = (int*) malloc(size * sizeof(int));
 	printf("Enter the numbers: ");
 	for(i=0;i<size;i++){
 		scanf("%d",&arr[i]);
