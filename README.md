@@ -1,8 +1,8 @@
 # 3rd Semester Coding Files
 
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
 A comprehensive collection of coding practice and assignments covering Data Structures, Algorithms, and Python fundamentals.
 
@@ -27,10 +27,10 @@ Core implementations of fundamental Data Structures and Algorithms in C:
 - **Array Operations**: Array printing and manipulation
 
 ### **DSA Practise/** (6 implementations)
-Additional practice problems and implementations in C and C++:
+Additional practice problems and implementations in C:
 - Binary Search Tree operations
-- Queue implementations (array-based in C++)
-- Singly Linked List in C
+- Queue implementations (array-based)
+- Singly Linked List
 - Tower of Hanoi recursive solution
 - Tree traversal techniques (Inorder, Preorder, Postorder)
 - Tree operations and implementations
@@ -74,22 +74,21 @@ File I/O practice examples
 
 | Language | Purpose | File Count |
 |----------|---------|------------|
-| **C** | Data Structures, Algorithms, Core DSA implementations | 25+ files |
-| **C++** | Advanced DSA problems and implementations | 5+ files |
+| **C** | Data Structures, Algorithms, Core DSA implementations | 32+ files |
 | **Python** | Assignments, practical exercises, applications | 55+ files |
 | **JavaScript** | Project implementations | 1 file |
 
 ## 📝 How to Use
 
-### Running C/C++ Programs
+### Running C Programs
 ```bash
-# Using GCC (for C)
+# Compile and run
 gcc filename.c -o output
 ./output
 
-# Using G++ (for C++)
-g++ filename.cpp -o output
-./output
+# Or compile to default a.exe
+gcc filename.c
+./a.exe
 ```
 
 ### Running Python Programs
@@ -101,10 +100,10 @@ python3 filename.py
 
 ## 📊 Statistics
 
-- **Total Programs**: 85+
-- **C Implementations**: 25+
-- **C++ Implementations**: 5+
+- **Total Programs**: 88+
+- **C Implementations**: 32+
 - **Python Programs**: 55+
+- **JavaScript Files**: 1
 - **Data Structures Covered**: 8+ (Arrays, Linked Lists, Stacks, Queues, BST, AVL Trees)
 - **Algorithms Implemented**: 15+ (Searching, Sorting, Tree Traversals, Recursion)
 
@@ -119,7 +118,7 @@ python3 filename.py
 
 This repository serves as a comprehensive learning resource and practice collection for:
 - 📖 Understanding core data structures and algorithms
-- 💡 Solving coding problems across multiple languages (C, C++, Python)
+- 💡 Solving coding problems in C and Python
 - 🎓 Reinforcing programming fundamentals through practical exercises
 - 🚀 Building a strong foundation in computer science concepts
 - 📝 Documenting academic progress throughout 3rd semester
