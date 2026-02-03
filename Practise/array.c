@@ -1,7 +1,6 @@
 #include<stdio.h>
 #define MAX 100
 
-int fact(int num);
 
 int main()
 {
@@ -23,9 +22,3 @@ int main()
 	return 0;
 }
 
-int fact(int num){
-	if (num == 0)
-		return 0;
-	else 
-		return num * fact(num - 1);
-}
