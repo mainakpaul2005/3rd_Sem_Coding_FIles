@@ -8,18 +8,17 @@ typedef struct linkedNode{
 
 void insertEnd(node** head, int val);
 void insertBegin(node** head, int val);
-void insertPos(node** head, int val, int pos);
 int deleteEnd(node** head);
 int deleteBegin(node** head);
 void display(node** head);
 
 int main(){
-	int ch, val, pos;
+	int ch, val;
 
 	node* head = NULL;
 
 	while(1){
-		printf("Menu\n1.insertEnd\n2.insertBegin\n3.insertPos\n4.deleteEnd\n5.deleteBegin\n6.Display\n7.Exit\nEnter your choice: \n");
+		printf("Menu\n1.insertEnd\n2.insertBegin\n3.deleteEnd\n4.deleteBegin\n5.Display\n6.Exit\nEnter your choice: \n");
 		scanf("%d",&ch);
 
 		switch(ch){
@@ -34,24 +33,9 @@ int main(){
 				insertBegin(&head, val);
 				break;
 			case 3:
-				printf("Enter the element to enter: ");
-				scanf("%d",&val);
-				printf("Enter the position: ");
-				scanf("%d",&pos);
-				insertPos(&head, val, pos);
-				break;
-			case 4:
-				val = deleteEnd(&head);
-				printf("Element at end is: %d\n", val);
-				break;
-			case 5:
-				val = deleteBegin(&head);
-				printf("Element at beginning is: %d\n", val);
-				break;
-			case 6:
 				display(&head);
 				break;
-			case 7:
+			case 4:
 				printf("Exiting");
 				exit(0);
 				break;
@@ -84,36 +68,6 @@ void insertBegin(node** head, int val){
 	newNode->next = *head;
 	*head = newNode;
 }
-void insertPos(node** head, int val, int pos){
-    if(pos < 1){
-        printf("Invalid position\n");
-        return;
-    }
-    
-    node* newNode = (node*)malloc(sizeof(node));
-    newNode->data = val;
-
-    if(pos == 1){
-        newNode->next = *head;
-        *head = newNode;
-        return;
-    }
-
-    node* temp = *head;
-    for(int i = 1; i < pos - 1 && temp != NULL; i++){
-        temp = temp->next;
-    }
-
-    if(temp == NULL){
-        printf("Invalid position\n");
-        free(newNode);
-        return;
-    }
-
-    newNode->next = temp->next;
-    temp->next = newNode;
-}
-
 int deleteEnd(node** head){
 	node* temp;
 	int val;
