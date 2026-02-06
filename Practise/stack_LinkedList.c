@@ -6,78 +6,72 @@ typedef struct linkedNode{
 	struct linkedNode* next;
 } node;
 
-void insertEnd(node** head, int val);
-void insertBegin(node** head, int val);
-int deleteEnd(node** head);
-int deleteBegin(node** head);
-void display(node** head);
+void push(node** top, int val); // insert at end
+int pop(node** top); // delete at end 
+void display(node** top); 
 
 int main(){
-	int ch, val;
+    int ch, val;
+    node* top = NULL;
 
-	node* head = NULL;
+    while(1){
+        printf("Menu\n1.Push\n2.Pop\n3.Display\n4.Exit\nEnter your choice:\n");
+        scanf("%d",&ch);
 
-	while(1){
-		printf("Menu\n1.insertEnd\n2.insertBegin\n3.deleteEnd\n4.deleteBegin\n5.Display\n6.Exit\nEnter your choice: \n");
-		scanf("%d",&ch);
-
-		switch(ch){
-			case 1:
-				printf("Enter the element to enter: ");
-				scanf("%d",&val);
-				insertEnd(&head, val);
-				break;
-			case 2:
-				printf("Enter the element to enter: ");
-				scanf("%d",&val);
-				insertBegin(&head, val);
-				break;
-			case 3:
-				display(&head);
-				break;
-			case 4:
-				printf("Exiting");
-				exit(0);
-				break;
-			default:
-				printf("Invalid choice !! Enter carefully\n");
-				break;
-		}
-	}
-	return 0;
+        switch(ch){
+            case 1:
+                printf("Enter element: ");
+                scanf("%d",&val);
+                push(&top, val);
+                break;
+            case 2:
+                val = pop(&top);
+                if (val == -1)
+                    printf("Stack is empty\n");
+                else
+                    printf("Popped: %d\n", val);
+                break;
+            case 3:
+                display(&top);
+                break;
+            case 4:
+                exit(0);
+        }
+    }
 }
 
-void insertEnd(node** head, int val){
-	node* newNode = (node*) malloc(sizeof(node));
-	newNode->data = val;
-	newNode->next = NULL;
-	if (*head == NULL){
-		*head = newNode;
-		return;
-	}
-	node* temp = *head;
-	while(temp->next != NULL){
-		temp = temp->next;
-	}
-	temp->next = newNode;
+
+void push(node** top, int val){
+    if (top == NULL) return;
+
+    node* newNode = malloc(sizeof(node));
+    if (newNode == NULL) return;
+
+    newNode->data = val;
+    newNode->next = NULL;
+
+    if (*top == NULL){
+        *top = newNode;
+        return;
+    }
+
+    node* temp = *top;
+    while (temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = newNode;
 }
 
-void insertBegin(node** head, int val){
-	node* newNode = (node*) malloc(sizeof(node));
-	newNode->data = val;
-	newNode->next = *head;
-	*head = newNode;
-}
-int deleteEnd(node** head){
-	node* temp;
-	int val;
-	if (*head == NULL){
+int pop(node** top){
+	node* temp = *top;
+	int val = 0;
+	if (*top == NULL){
 		return -1;
 	}
-	temp = *head;
-	if ((*head)->next == NULL){
+	temp = *top;
+	if ((*top)->next == NULL){
 		val = temp->data;
-		*head = NULL;
+		*top = NULL;
 		free(temp);
 		return val;
 	}
@@ -88,31 +82,21 @@ int deleteEnd(node** head){
 	free(temp->next);
 	temp->next = NULL;
 	return val;
-}
 
-int deleteBegin(node** head){
-	node* temp;
-	int val;
-	if (*head == NULL){
-		return -1;
-	}
-	temp = *head;
-	val = temp->data;
-	*head = (*head)->next;
-	free(temp);
-	return val;
 }
+void display(node** top){
+    if (top == NULL || *top == NULL){
+        printf("List is empty\n");
+        return;
+    }
 
-void display(node** head){
-	if (*head == NULL){
-		printf("Linked List is empty\n");
-		return;
-	}
-	node* temp = *head;
-	printf("Linked List: ");
-	while(temp != NULL){
-		printf("%d -> ", temp->data);
-		temp = temp->next;
-	}
-	printf("NULL\n");
+    node* temp = *top;
+    printf("List is: ");
+    while (temp != NULL){
+        printf("%d", temp->data);
+        if (temp->next != NULL)
+            printf(" -> ");
+        temp = temp->next;
+    }
+    printf("\n");
 }
