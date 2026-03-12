@@ -118,6 +118,24 @@ void preOrder(struct Node *root)
     }
 }
 
+void inOrder(struct Node *root) 
+{
+    if(root != NULL) {
+        inOrder(root->left);
+        printf("%d ", root->key);
+        inOrder(root->right);
+    }
+}
+
+void postOrder(struct Node *root) 
+{
+    if(root != NULL) {
+        postOrder(root->left);
+        postOrder(root->right);
+        printf("%d ", root->key);
+    }
+}
+
 int main() 
 {
     struct Node *root = NULL;
@@ -137,6 +155,12 @@ int main()
 
     printf("Preorder traversal of the constructed AVL tree is \n");
     preOrder(root);
+    
+    printf("\nInorder traversal of the constructed AVL tree is \n");
+    inOrder(root);
+    
+    printf("\nPostorder traversal of the constructed AVL tree is \n");
+    postOrder(root);
 
     return 0;
 }
